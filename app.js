@@ -5,9 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
 var sections = require('./routes/sections');
+var questions = require('./routes/questions');
 
 var app = express();
 
@@ -33,6 +32,7 @@ db.once('open', function() {
 
 // routes
 app.use('/api/sections', sections);
+app.use('/api/questions', questions);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
