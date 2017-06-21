@@ -5,11 +5,8 @@ var sectionSchema = new mongoose.Schema({
         type: String,
         required: "Name cannot be left blank"
     },
-    children: [{
-        section_id: mongoose.Schema.Types.ObjectId,
-        name: String
-    }],
-    root: Boolean
+    children: [{ type: mongoose.Schema.Types.ObjectId, ref: 'sections' }],
+    hasChildren: Boolean
 });
 
 module.exports = mongoose.model('sections', sectionSchema);
